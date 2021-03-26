@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: consumerA
+  server:
+    port: 3030
+
+kafka:
+  bootstrap:
+    servers: 127.0.0.1:9092
+  schema:
+    registry:
+      url: http://localhost:8081
+  specific:
+    avro:
+      reader: true
+  consumers:
+    default:
+      use-native-encoding: true
+      key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
