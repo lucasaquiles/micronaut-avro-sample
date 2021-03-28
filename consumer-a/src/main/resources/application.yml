@@ -3,6 +3,15 @@ micronaut:
     name: consumerA
   server:
     port: 3030
+  metrics:
+    enabled: true
+    export:
+      newrelic:
+        enabled: true
+        accountId: ${ACCOUNT_ID}
+        apiKey: ${API_KEY:}
+        serviceName: Consumer-A app
+        meter-name-event-type-enabled: true
 
 kafka:
   bootstrap:
