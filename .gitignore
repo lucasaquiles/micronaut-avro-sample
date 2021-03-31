@@ -1,4 +1,7 @@
 ./consumer-a/build
 ./consumer-a/.idea
+./consumer-b/.idea
+./consumer-b/build
+./consumer-b/.gradle
 ./producer/build
 ./producer/.idea

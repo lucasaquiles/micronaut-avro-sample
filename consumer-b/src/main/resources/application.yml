@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: consumer b
+  cloud:
+    function:
+      definition: ruleAnalizer
+    stream:
+      bindings:
+        ruleAnalizer-in-0:
+          max-attempts: 1
+          destination: rule-created
+          group: consumer-b
+          startOffset: latest
+        default:
+          consumer:
+            useNativeEncoding: true
+      kafka:
+        binder:
+          autoCreateTopics: false
+          consumer-properties:
+            key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            schema.registry.url: http://localhost:8081
+            specific.avro.reader: true
+
+
+
+#    default:
+#      consumer:
+#        userNativeEncoding: true
+#    kafka:
+#      binder:
+#        autoCreateTopics: false
+#        consumer-properties:
+#          key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+#          value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+#          schema.registry.url: http://localhost:8081
+#          specific.avro.reader: true
+#
+
+server:
+  port: 9091

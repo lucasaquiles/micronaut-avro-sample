@@ -9,7 +9,7 @@ micronaut:
       newrelic:
         enabled: true
         accountId: ${ACCOUNT_ID}
-        apiKey: ${API_KEY:}
+        apiKey: ${API_KEY}
         serviceName: Consumer-A app
         meter-name-event-type-enabled: true
 
